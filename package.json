@@ -1,0 +1,63 @@
+{
+	"name": "n8n-nodes-identark",
+	"version": "1.0.0",
+	"description": "n8n community node for IdentArk — route LLM calls through a secure gateway so your n8n instance holds zero API keys",
+	"license": "MIT",
+	"homepage": "https://github.com/identark/n8n-nodes-identark#readme",
+	"keywords": [
+		"n8n-community-node-package",
+		"n8n",
+		"identark",
+		"ai",
+		"llm",
+		"gateway",
+		"governance",
+		"human-in-the-loop"
+	],
+	"author": {
+		"name": "Gold Okpa",
+		"email": "gold@identark.io"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/identark/n8n-nodes-identark.git"
+	},
+	"bugs": {
+		"url": "https://github.com/identark/n8n-nodes-identark/issues"
+	},
+	"engines": {
+		"node": ">=20.15"
+	},
+	"scripts": {
+		"build": "n8n-node build",
+		"build:watch": "tsc --watch",
+		"dev": "n8n-node dev",
+		"lint": "n8n-node lint",
+		"lint:fix": "n8n-node lint --fix",
+		"release": "n8n-node release",
+		"prepublishOnly": "n8n-node prerelease"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"strict": true,
+		"credentials": [
+			"dist/credentials/IdentArkApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/IdentArk/IdentArk.node.js"
+		]
+	},
+	"devDependencies": {
+		"@n8n/node-cli": "^0.32.1",
+		"eslint": "9.29.0",
+		"prettier": "3.6.2",
+		"release-it": "^19.0.4",
+		"typescript": "5.9.2"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	}
+}
