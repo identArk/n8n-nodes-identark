@@ -1,6 +1,6 @@
 {
 	"name": "n8n-nodes-identark",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "n8n community node for IdentArk \u2014 route LLM calls through a secure gateway so your n8n instance holds zero API keys",
 	"license": "MIT",
 	"homepage": "https://github.com/identArk/n8n-nodes-identark#readme",
