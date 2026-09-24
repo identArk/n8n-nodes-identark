@@ -55,7 +55,10 @@ Then in n8n create an **IdentArk API** credential:
 | **API Key** | Your IdentArk API key (`csk_…`). Sent as a bearer token. |
 | **Control Plane URL** | Base URL of your IdentArk control plane. Defaults to `https://api.identark.io`. |
 
-The credential is verified against the control plane's `/health` endpoint when you save it.
+When you save the credential, n8n calls `GET /v1/agents` against your control plane. This
+validates the API key itself rather than only checking that the URL is reachable. The key
+needs the `agents:read` scope, which is included in the `read`, `invoke`, and `admin`
+presets.
 
 ## Compatibility
 

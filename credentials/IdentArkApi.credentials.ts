@@ -51,10 +51,14 @@ export class IdentArkApi implements ICredentialType {
 		},
 	};
 
+	// Tests the credential, not just reachability. /health is unauthenticated, so
+	// it returns 200 for an empty or invalid key — a green tick that means nothing.
+	// /v1/agents requires agents:read, which every scope preset (read, invoke,
+	// admin) includes, and is already called by the List Agents operation.
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: '={{$credentials.baseUrl}}',
-			url: '/health',
+			url: '/v1/agents',
 			method: 'GET',
 		},
 	};

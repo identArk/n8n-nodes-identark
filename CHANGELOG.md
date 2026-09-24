@@ -12,6 +12,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Corrected the documented API key prefix from `iak_` to `csk_` in the credential
   field description and the README. IdentArk server keys are `csk_`-prefixed; the
   previous text sent users looking for a key format that does not exist.
+- Credential test now calls `GET /v1/agents` instead of `GET /health`. `/health` is
+  unauthenticated and returns 200 for an absent or invalid API key, so the check
+  passed for credentials that could not work. `/v1/agents` requires `agents:read`,
+  which every scope preset grants, and the node already calls it.
 - Changed the default **Control Plane URL** from the raw Fly hostname
   (`https://identark-cloud.fly.dev`) to the public API endpoint
   (`https://api.identark.io`), so installs route through the documented,
