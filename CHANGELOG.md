@@ -5,6 +5,18 @@ All notable changes to `n8n-nodes-identark` are documented here.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2]
+
+### Fixed
+
+- Corrected the documented API key prefix from `iak_` to `csk_` in the credential
+  field description and the README. IdentArk server keys are `csk_`-prefixed; the
+  previous text sent users looking for a key format that does not exist.
+- Changed the default **Control Plane URL** from the raw Fly hostname
+  (`https://identark-cloud.fly.dev`) to the public API endpoint
+  (`https://api.identark.io`), so installs route through the documented,
+  stable address rather than a deployment-specific host.
+
 ## [1.0.0]
 
 ### Added

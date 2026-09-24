@@ -45,15 +45,15 @@ The node is free and open source. It connects to the IdentArk control plane, whi
 You need an IdentArk account and an API key. **[Create a free account at identark.io →](https://identark.io)** (no card required).
 
 1. Sign up at [identark.io](https://identark.io) and create an organisation.
-2. In the dashboard, open **Settings → API Keys** and generate a key (it starts with `iak_`).
+2. In the dashboard, open **Settings → API Keys** and generate a key (it starts with `csk_`).
 3. Register your LLM provider credentials in the IdentArk vault.
 
 Then in n8n create an **IdentArk API** credential:
 
 | Field | Description |
 |-------|-------------|
-| **API Key** | Your IdentArk API key (`iak_…`). Sent as a bearer token. |
-| **Control Plane URL** | Base URL of your IdentArk control plane. Defaults to `https://identark-cloud.fly.dev`. |
+| **API Key** | Your IdentArk API key (`csk_…`). Sent as a bearer token. |
+| **Control Plane URL** | Base URL of your IdentArk control plane. Defaults to `https://api.identark.io`. |
 
 The credential is verified against the control plane's `/health` endpoint when you save it.
 
