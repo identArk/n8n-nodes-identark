@@ -30,13 +30,13 @@ export class IdentArkApi implements ICredentialType {
 			typeOptions: { password: true },
 			default: '',
 			required: true,
-			description: 'Your IdentArk API key (starts with iak_)',
+			description: 'Your IdentArk API key (starts with csk_)',
 		},
 		{
 			displayName: 'Control Plane URL',
 			name: 'baseUrl',
 			type: 'string',
-			default: 'https://identark-cloud.fly.dev',
+			default: 'https://api.identark.io',
 			required: true,
 			description: 'Base URL of your IdentArk control plane',
 		},
@@ -51,10 +51,14 @@ export class IdentArkApi implements ICredentialType {
 		},
 	};
 
+	// Tests the credential, not just reachability. /health is unauthenticated, so
+	// it returns 200 for an empty or invalid key — a green tick that means nothing.
+	// /v1/agents requires agents:read, which every scope preset (read, invoke,
+	// admin) includes, and is already called by the List Agents operation.
 	test: ICredentialTestRequest = {
 		request: {
 			baseURL: '={{$credentials.baseUrl}}',
-			url: '/health',
+			url: '/v1/agents',
 			method: 'GET',
 		},
 	};
